@@ -82,8 +82,23 @@ console.log("img height=", img.height);
     rotate.onclick = function () {
       deg = (deg + 90) % 360;
       console.log("rotate " + deg)
-      img.style.transform = 'rotate(' + deg + 'deg) '
-      img.style['transform-origin'] = 'center';
+      //img.style.transform = 'rotate(' + -90 + 'deg) ';
+      if(deg===0){
+        translate='translate(0,0)';
+      }
+      if(deg===90){
+        translate='translate(0,-100%)';
+      }
+      if(deg===180){
+        translate='translate(-100%,-100%)';
+      }
+      if(deg===270){
+        translate='translate(-100%,0)';
+      }
+       img.style.transform = 'rotate(' + deg + 'deg)  '+translate;
+      //img.style['transform-origin'] = 'center';
+      img.style['transform-origin'] = 'top left';
+
       //img.style.height=img.getBoundingClientRect().height;
       //img.style.top=0;
       console.log("img bound height",img.getBoundingClientRect().height);
